@@ -7,3 +7,8 @@
 
 ## 基础数据类型
 
+
+
+## 学习资料
+* https://github.com/GoesToEleven/GolangTraining/tree/master
+

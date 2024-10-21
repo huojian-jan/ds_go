@@ -89,6 +89,37 @@ fmt.Println(head.Pre.Pre.Pre.Pre.Pre.Data)
 
 }
 
+
+func named_return_test(add1,add2 int)(sum int){
+	sum=add1+add2
+	return
+}
+
+func return_multiple_vals_test()(int,int){
+left:=100
+right:=200
+return left,right
+}
+
+
+func varidic_numbers_test1(data ...int) int{
+	fmt.Println(data)
+	sum:=0
+	for idx,val:=range data{
+		fmt.Printf("idx=%d\t,val=%d\n",idx,val)
+		sum+=val
+	}
+	return sum
+}
+
+
+func variadic_args_test(){
+	
+}
+
+
+
 func main(){
-	ring_test()
+	sum:=varidic_numbers_test1(1,2,3,4)
+	fmt.Println("sum=",sum)
 }
