@@ -1,6 +1,6 @@
 package main
 
-import DsArray "learn-go/array"
+import "fmt"
 func main(){
- DsArray.Main()
+	fmt.Println("print from main.go")
 }
