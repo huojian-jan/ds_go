@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 type LinkedNode struct{
@@ -113,13 +114,99 @@ func varidic_numbers_test1(data ...int) int{
 }
 
 
-func variadic_args_test(){
-	
+func variadic_args_test(data ...int){
+for _, val :=range  data{
+	fmt.Println(val)
+}	
 }
 
 
 
+func slice_test1(){
+	data:=[5]int{1,2,3,4,5}
+	fmt.Println(reflect.TypeOf(data))
+}
+
+
+func slice_test2(){
+	slice:=make([]int,5,10)
+	fmt.Println(slice)
+}
+
+
+
+func where(data []int,predicate func(int) bool) []int{
+	result:=[]int{}
+	for _,v:=range data{
+		if predicate(v){
+			result=append(result,v)
+		}
+	}
+	return result
+}
+
+
+func where_test1(){
+	predicate:=func(v int) bool{
+		return v>5
+	}
+
+	data:=[]int{1,2,5,8,6,12,27,23}
+
+	result:=where(data,predicate)
+
+	fmt.Println(result)
+}
+
+
+type student struct{
+	name string
+	age int
+	id int
+}
+
+
+func student_test1(){
+	stu1:=student{"zhangsan",18,101}
+	fmt.Printf("name in outside change name:%s\n",stu1.name)
+	student_change_name(&stu1)
+	fmt.Printf("name in outside change name:%s\n",stu1.name)
+}
+
+func student_change_name(stu *student){
+	stu.name="lisi"
+	fmt.Printf("name in change func:%s\n",stu.name)
+}
+
+
 func main(){
-	sum:=varidic_numbers_test1(1,2,3,4)
-	fmt.Println("sum=",sum)
+
+	student_test1()
+
+
+	// where_test1()
+	// data:=make([]int,10);
+	// for i:=0;i<10;i++{
+	// 	data[i]=i
+	// }
+	// variadic_args_test(data...)
+
+
+// greeting :=func(){
+// 	fmt.Println("hello friend")
+// }
+
+// fmt.Printf("%T\n",greeting)
+
+
+//closure
+
+// x:=100
+// fmt.Println(x){
+// 	fmt.println(x)
+
+// 	y:="y var inside"
+// 	fmt.println(y)
+// }
+// // fmt.println(y)
 }
