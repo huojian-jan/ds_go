@@ -178,11 +178,42 @@ func student_change_name(stu *student){
 	fmt.Printf("name in change func:%s\n",stu.name)
 }
 
+type province struct{
+	name string
+}
+
+type city struct{
+	name string
+}
+
+type address struct{
+	province province
+	city city
+}
+
+type man struct{
+	name string
+	address address
+}
+
+func(p province) printProvince(){
+fmt.Println(p.name)
+}
+
+func struct_func(){
+	p:=province{
+		name: "zhejiang",
+	}
+	p.printProvince()
+}
+
+
+func struct_composition_test1(){
+}
 
 func main(){
 
-	student_test1()
-
+	struct_func()
 
 	// where_test1()
 	// data:=make([]int,10);
