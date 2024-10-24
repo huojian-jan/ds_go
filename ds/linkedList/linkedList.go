@@ -187,8 +187,8 @@ type city struct{
 }
 
 type address struct{
-	province province
-	city city
+	province
+	city
 }
 
 type man struct{
@@ -208,12 +208,22 @@ func struct_func(){
 }
 
 
+func(c city) printCity(){
+	fmt.Printf("city=%s\n",c.name)
+}
+
 func struct_composition_test1(){
+p:=province{name: "zhejiang"}
+c:=city{name: "hangzhou"}
+
+addr:=address{p,c}
+addr.printCity()
 }
 
 func main(){
 
-	struct_func()
+	// struct_func()
+	struct_composition_test1()
 
 	// where_test1()
 	// data:=make([]int,10);
