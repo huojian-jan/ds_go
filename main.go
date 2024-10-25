@@ -17,5 +17,6 @@ func json_serialize_test1() {
 }
 
 func main() {
-	interfaceTest1()
+	// interfaceTest1()
+	map_all_test()
 }
