@@ -20,6 +20,7 @@ func main() {
 		log.Fatalf("failed to connect to database: %v", err)
 	}
 
+	db.AutoMigrate(&user{})
 	db.Create(&user{Name: "zhangsan", Age: 18})
 
 	log.Println("Connected to the database successfully!")
