@@ -16,7 +16,8 @@ func CollectRouter(r *gin.Engine) *gin.Engine {
 
 	//category相关的接口
 	r.POST("api/v1/category/create", controller.CreateCategory)
-	r.GET("api/v1/category/get", middleware.AuthMiddleware(), controller.GetCategoryById)
+	r.DELETE("api/v1/category/delete", middleware.AuthMiddleware(), controller.DeleteCategory)
+	r.GET("api/v1/category/categories", middleware.AuthMiddleware(), controller.GetCategories)
 
 	return r
 }
