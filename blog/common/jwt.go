@@ -18,8 +18,9 @@ func ReleaseToken(user model.User) (string, error) {
 	claims := &Claims{
 		UserId: user.ID,
 		RegisteredClaims: jwt.RegisteredClaims{
-			ExpiresAt: &jwt.NumericDate{Time: expirationTime},
+			ExpiresAt: jwt.NewNumericDate(expirationTime),
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
+			NotBefore: jwt.NewNumericDate(time.Now()),
 			Subject:   "user token",
 		},
 	}

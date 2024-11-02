@@ -1,8 +1,9 @@
 package model
 
+import "gorm.io/gorm"
+
 type Category struct {
-	ID       uint   `json:"id" gorm:"primary_key"`
-	Name     string `json:"name" gorm:"type:varchar(50);not null;unique"`
-	CreateAt string `json:"create_at" gorm:"type:timestamp default CURRENT_TIMESTAMP"`
-	UpdateAt string `json:"update_at" gorm:"type:timestamp default CURRENT_TIMESTAMP"`
+	gorm.Model
+	Name        string `json:"name" gorm:"type:varchar(50);not null;unique"`
+	Instruction string `json:"instruction" gorm:"type:text"`
 }
